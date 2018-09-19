@@ -1,0 +1,61 @@
+**$ENCRYPTED_LIB
+**$INTERFACE
+* SN74LVC74APWR
+*****************************************************************************
+* (C) Copyright 2015 Texas Instruments Incorporated. All rights reserved.                                            
+*****************************************************************************
+** This model is designed as an aid for customers of Texas Instruments.
+** TI and its licensors and suppliers make no warranties, either expressed
+** or implied, with respect to this model, including the warranties of 
+** merchantability or fitness for a particular purpose.  The model is
+** provided solely on an "as is" basis.  The entire risk as to its quality
+** and performance is with the customer.
+*****************************************************************************
+*
+** Released by: WEBENCH(R) Design Center, Texas Instruments Inc.
+* Part: SN74LVC74APWR
+* Date: 06/25/2015
+* Model Type: Transient
+* Simulator: Pspice
+* Simulator Version: Pspice 16.2.0.s003
+* EVM Order Number: N/A 
+* EVM Users Guide: N/A
+* Datasheet: SCAS287T, 01 August 2013
+* Model Version: 1.00
+*
+*****************************************************************************
+*
+* Updates:
+* Version 1.0 : New model
+*
+************************************************************************* 
+* Notes :
+*
+*  1. The following parameters are being modeled: 
+*    VOH,VOL,Ii,ICC,Ci,tpd.
+*
+*************************************************************************
+
+.SUBCKT SN74LVC74APWR 1CLRZ 1D 1CLK 1PREZ 1Q 1QZ GND 2QZ 2Q 2PREZ 2CLK 2D 2CLRZ VCC
+.ENDS
+.SUBCKT SN74LVC74APWR_DFF CLRZ D CLK PREZ Q QZ VCC GND 
+.ENDS
+.SUBCKT TG C CZ IN Y 
+.ENDS
+.SUBCKT OR A B Y PARAMS: VDD=2.7 VSS=0 VTHRESH= 0.7
+.ENDS
+.SUBCKT TGATE C CZ IN Y 
+.ENDS
+.SUBCKT INV A Y VCC GND PARAMS: VDD=2.7 VSS=0 VTHRESH= 0.7
+.ENDS
+.SUBCKT INV1 A Y VCC GND PARAMS: VDD=2.7 VSS=0 VTHRESH= 0.7
+.ENDS
+.SUBCKT NAND A B Y PARAMS:VDD=2.7 VSS=0 VTHRESH= 0.7
+.ENDS
+.subckt SHI1 1 2 3 4  
+.ENDS SHI1
+.subckt SLO1 1 2 3 4  
+.ENDS SLO1
+.subckt SLO2 1 2 3 4  .ENDS SLO2
+.subckt SHI2 1 2 3 4  .ENDS SHI2
+

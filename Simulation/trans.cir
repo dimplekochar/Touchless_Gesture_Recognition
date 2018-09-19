@@ -1,0 +1,30 @@
+transmitter
+.include 1n4001.txt
+.include tl071.txt
+.include dtrans.txt
+.include 555.txt
+X1 0 2 3 4 5 2 7 4 TLC555
+c1 2 0 1n
+r1 2 7 5.95k
+d1 7 2 Da1N4004
+r2 7 4 5.54k
+vdd 4 0 dc 5
+c2 5 0 10n
+X2 11 12 3 4 15 12 0 18 19 110 111 112 113 4 SN74LVC74APWR
+c3 5 20 2n
+r3 20 0 2k
+x3 20 21 22 23 24 TL071
+vcc 22 0 dc 12
+vss 23 0 dc -12
+r4 21 0 10k
+r5 21 24 101k
+r6 24 25 2k
+c4 25 0 2n
+x4 25 26 22 23 26 TL071
+
+.tran 0.001ms 5ms
+.control
+run
+plot v(26)
+
+

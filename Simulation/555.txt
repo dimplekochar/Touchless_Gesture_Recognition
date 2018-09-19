@@ -1,0 +1,72 @@
+* test 555
+
+.subckt TLC555 1 2 3 4 5 6 7 8
+* Node Connection
+*  common
+*  |  trigger
+*  |  |  output
+*  |  |  |  reset
+*  |  |  |  |  control
+*  |  |  |  |  |  threshold
+*  |  |  |  |  |  |  discharge
+*  |  |  |  |  |  |  | vdd
+*  |  |  |  |  |  |  | |
+*  1  2  3  4  5  6  7 8
+.model mosmod nmos (level=1 kp=1 vto=1 rd=5)
+.model dmod d (rs=1e-6)
+.model dmod1 d (rs=1e-6 is=1e-9)
+eref 15 1 8 1 .5
+gsource 8 3 8 26 12.5e-3
+gsink 3 1 26 1 67e-3
+vd1 8 27 dc .8
+vd2 28 1 dc .85
+vref 30 1 dc 1.2
+c1 29 1 700e-15
+rref2 30 1 100e3
+rref 15 1 100e3
+rout 3 1 100k
+r1 6 1 500e9
+r2 2 1 500e9
+r3 8 5 75e3
+r4 5 9 75e3
+r5 9 1 75e3
+r6 10 11 1e3
+r7 13 14 1e3
+r8 8 12 150e3
+r9 4 8 500e9
+r10 20 19 1e3
+r11 16 17 1e3
+r12 8 18 150e3
+r13 8 21 150e3
+r14 22 23 1e3
+r15 8 26 150e3
+r16 24 25 1e3
+r19 7 1 500e9
+r20 29 26 1e6
+d1 1 11 dmod
+d2 12 11 dmod
+d3 12 14 dmod
+d4 1 14 dmod
+d5 18 17 dmod
+d6 1 17 dmod
+d7 18 19 dmod
+d8 1 19 dmod
+d9 21 14 dmod
+d10 21 25 dmod
+d11 1 23 dmod
+d12 18 23 dmod
+d13 26 25 dmod
+d14 1 25 dmod1
+d15 3 27 dmod
+d16 28 3 dmod
+e1 10 1 6 5 1000
+e2 13 1 2 9 1000
+e3 16 1 15 12 1000
+e4 22 1 15 21 1000
+e5 24 1 15 18 1000
+e7 20 1 4 30 1000
+m1 7 29 1 1 mosmod
+.ends tlc555
+
+.end
+
